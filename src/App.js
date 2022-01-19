@@ -26,9 +26,13 @@ function App() {
       loe: 'Clothes'
     },
   ];
+
+  const addExpenseHandler = expense => {
+console.log(expense)
+  }
   return (
     <div>
-      <NewExpenses />
+      <NewExpenses onAddExpense={addExpenseHandler}/>
       <Expenses items={expenses} />
     </div>
   );
