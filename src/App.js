@@ -1,8 +1,10 @@
 import Expenses from './components/Expenses/Expenses';
+import react , {useState} from 'react';
 import NewExpenses from './components/ExpenseForms/NewExpense';
 
 function App() {
-  const expenses = [
+  
+  const Dummy = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -26,9 +28,11 @@ function App() {
       loe: 'Clothes'
     },
   ];
-
+  const [expenses, setExpenses]=useState(Dummy)
   const addExpenseHandler = expense => {
-console.log(expense)
+setExpenses((prevExpenses)=>{
+  return [expense,...prevExpenses]
+})
   }
   return (
     <div>

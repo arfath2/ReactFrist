@@ -26,7 +26,7 @@ function ExpenseItem(props) {
                 <h2>{props.loe}</h2>
                 <div className='expense-item__price'>${props.amount}</div>
             </div>
-            <button onClick={changeTitle}>change title</button>
+            {/* <button onClick={changeTitle}>change title</button> */}
             {/* <button onClick={deleteItem}>Delete</button> */}
         </Card>
     ); 
