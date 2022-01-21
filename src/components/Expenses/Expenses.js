@@ -3,6 +3,7 @@ import Card from '../UI/Card';
 import ExpenseItem from './ExpenseItem';
 import ExpenseFilter from './ExpenseFilter'
 import './Expenses.css';
+import ExpenseList from './ExpenseList';
 
 function Expenses(props) {
   const [filteredYear,SetFilteredYear]=useState('2021');
@@ -14,18 +15,12 @@ function Expenses(props) {
     return expense.date.getFullYear().toString()===filteredYear
   })
 
-  let expenseContent = <p>No Expenses</p>
-  let expenseContent1 = <p>here you have one expense add more</p>
 
-
-  if(filteredExpense.length > 0 ){
-    expenseContent =     filteredExpense.map(expense => <ExpenseItem  key={expense.id}title={expense.title} amount={expense.amount} date={expense.date} />)
-  }
   return (
     <div>
     <Card className="expenses">
     <ExpenseFilter selected={filteredYear}  onChangeFilter={filterChangeHandler}/>
-    {expenseContent}
+    <ExpenseList items={filteredExpense} />
     </Card>
     </div>
   );
